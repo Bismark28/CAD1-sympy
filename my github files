@@ -1,0 +1,191 @@
+masters@co-u-l3-01:~/Documents/bismark/git-tutorial$ git init
+Initialized empty Git repository in /home/masters/Documents/bismark/git-tutorial/.git/
+masters@co-u-l3-01:~/Documents/bismark/git-tutorial$ git status
+On branch master
+
+Initial commit
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	text1.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+masters@co-u-l3-01:~/Documents/bismark/git-tutorial$ touch  .gitignore
+masters@co-u-l3-01:~/Documents/bismark/git-tutorial$ gedit  .gitignore
+masters@co-u-l3-01:~/Documents/bismark/git-tutorial$ git add text1.txt
+masters@co-u-l3-01:~/Documents/bismark/git-tutorial$ git add --all
+masters@co-u-l3-01:~/Documents/bismark/git-tutorial$ git status
+On branch master
+
+Initial commit
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+	new file:   .gitignore
+	new file:   text1.txt
+
+masters@co-u-l3-01:~/Documents/bismark/git-tutorial$ git commit -a
+[master (root-commit) 58cbeab] mr musicman
+ 2 files changed, 3 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 text1.txt
+masters@co-u-l3-01:~/Documents/bismark/git-tutorial$ git log
+commit 58cbeabd05964785c1557c3ff01c731d2ddf8e39
+Author: Bismark28 <ohemeng1988@gmail.com>
+Date:   Tue Oct 17 11:11:47 2017 +0200
+
+    mr musicman
+masters@co-u-l3-01:~/Documents/bismark/git-tutorial$ git branch
+* master
+masters@co-u-l3-01:~/Documents/bismark/git-tutorial$ git branch new
+masters@co-u-l3-01:~/Documents/bismark/git-tutorial$ git branch
+* master
+  new
+masters@co-u-l3-01:~/Documents/bismark/git-tutorial$ git checkout new
+Switched to branch 'new'
+masters@co-u-l3-01:~/Documents/bismark/git-tutorial$ git branch
+  master
+* new
+masters@co-u-l3-01:~/Documents/bismark/git-tutorial$ touch text2.txt
+masters@co-u-l3-01:~/Documents/bismark/git-tutorial$ gedit text2.txt
+masters@co-u-l3-01:~/Documents/bismark/git-tutorial$ git status
+On branch new
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	text2.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+masters@co-u-l3-01:~/Documents/bismark/git-tutorial$ tutorials git add --all
+tutorials: command not found
+masters@co-u-l3-01:~/Documents/bismark/git-tutorial$ git add --all
+masters@co-u-l3-01:~/Documents/bismark/git-tutorial$ git status
+On branch new
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   text2.txt
+
+masters@co-u-l3-01:~/Documents/bismark/git-tutorial$ git commit -a
+[new 86c0943] i love music
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 text2.txt
+masters@co-u-l3-01:~/Documents/bismark/git-tutorial$ git log
+commit 86c09434d83c2d53627ef88b84fb4a46628713a2
+Author: Bismark28 <ohemeng1988@gmail.com>
+Date:   Tue Oct 17 11:26:15 2017 +0200
+
+    i love music
+
+commit 58cbeabd05964785c1557c3ff01c731d2ddf8e39
+Author: Bismark28 <ohemeng1988@gmail.com>
+Date:   Tue Oct 17 11:11:47 2017 +0200
+
+    mr musicman
+masters@co-u-l3-01:~/Documents/bismark/git-tutorial$ git checkout master
+Switched to branch 'master'
+masters@co-u-l3-01:~/Documents/bismark/git-tutorial$ git merge new
+Updating 58cbeab..86c0943
+Fast-forward
+ text2.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 text2.txt
+masters@co-u-l3-01:~/Documents/bismark/git-tutorial$ git branch -d new
+Deleted branch new (was 86c0943).
+masters@co-u-l3-01:~/Documents/bismark/git-tutorial$ git remote add origin https://github.com/Bismark28/git-tutorial2.git
+masters@co-u-l3-01:~/Documents/bismark/git-tutorial$ git remote -v
+origin	https://github.com/Bismark28/git-tutorial2.git (fetch)
+origin	https://github.com/Bismark28/git-tutorial2.git (push)
+masters@co-u-l3-01:~/Documents/bismark/git-tutorial$ git push origin master
+Username for 'https://github.com': bismark28 
+Password for 'https://bismark28 @github.com': 
+Counting objects: 7, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (7/7), 489 bytes | 0 bytes/s, done.
+Total 7 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), done.
+To https://github.com/Bismark28/git-tutorial2.git
+ * [new branch]      master -> master
+masters@co-u-l3-01:~/Documents/bismark/git-tutorial$ ls
+text1.txt  text2.txt
+masters@co-u-l3-01:~/Documents/bismark/git-tutorial$ cd ..
+masters@co-u-l3-01:~/Documents/bismark$ git clone https://github.com/Bismark28/CAD1-sympy.git
+fatal: destination path 'CAD1-sympy' already exists and is not an empty directory.
+masters@co-u-l3-01:~/Documents/bismark$ git clone https://github.com/Bismark28/CAD1-sympy.git
+Cloning into 'CAD1-sympy'...
+remote: Counting objects: 25, done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 25 (delta 0), reused 3 (delta 0), pack-reused 21
+Unpacking objects: 100% (25/25), done.
+Checking connectivity... done.
+masters@co-u-l3-01:~/Documents/bismark$ cd CAD1-SYMPY/
+bash: cd: CAD1-SYMPY/: No such file or directory
+masters@co-u-l3-01:~/Documents/bismark$ cd CAD1-sympy/
+masters@co-u-l3-01:~/Documents/bismark/CAD1-sympy$ git remote -v
+origin	https://github.com/Bismark28/CAD1-sympy.git (fetch)
+origin	https://github.com/Bismark28/CAD1-sympy.git (push)
+masters@co-u-l3-01:~/Documents/bismark/CAD1-sympy$ git remote add upstream https://github.com/ViBOT-Erasmus/CAD1-sympy.git
+masters@co-u-l3-01:~/Documents/bismark/CAD1-sympy$ git remote -v
+origin	https://github.com/Bismark28/CAD1-sympy.git (fetch)
+origin	https://github.com/Bismark28/CAD1-sympy.git (push)
+upstream	https://github.com/ViBOT-Erasmus/CAD1-sympy.git (fetch)
+upstream	https://github.com/ViBOT-Erasmus/CAD1-sympy.git (push)
+masters@co-u-l3-01:~/Documents/bismark/CAD1-sympy$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	oj.ipynb
+
+nothing added to commit but untracked files present (use "git add" to track)
+masters@co-u-l3-01:~/Documents/bismark/CAD1-sympy$ git add --all
+masters@co-u-l3-01:~/Documents/bismark/CAD1-sympy$ git commit -a
+[master ca8d785] this is my new folder
+ 1 file changed, 605 insertions(+)
+ create mode 100644 oj.ipynb
+masters@co-u-l3-01:~/Documents/bismark/CAD1-sympy$ git log
+commit ca8d785540a7299c1c813ca80138bf035e4cb5a3
+Author: Bismark28 <ohemeng1988@gmail.com>
+Date:   Tue Oct 17 12:04:14 2017 +0200
+
+    this is my new folder
+
+commit 471fea7e742ffab7d97d56732d69249b6a26a4ab
+Author: mojdeh <mojdeh.rastgoo@gmail.com>
+Date:   Mon Oct 16 21:55:24 2017 +0200
+
+    ading the solution of lab2
+
+commit 1ee669492a296bf6f23ad2a6e6bfb1af8b52daaa
+Author: mojdeh <mojdeh.rastgoo@gmail.com>
+Date:   Thu Oct 5 01:44:42 2017 +0200
+
+    adding README.md
+
+commit 7870953931487dcf49818f921a7e8301c4fb4fed
+Author: mojdeh <mojdeh.rastgoo@gmail.com>
+Date:   Thu Oct 5 01:32:14 2017 +0200
+
+    adding solution of lab1
+masters@co-u-l3-01:~/Documents/bismark/CAD1-sympy$ git push origin master
+Username for 'https://github.com': bismark28
+Password for 'https://bismark28@github.com': 
+remote: Invalid username or password.
+fatal: Authentication failed for 'https://github.com/Bismark28/CAD1-sympy.git/'
+masters@co-u-l3-01:~/Documents/bismark/CAD1-sympy$ git push origin master
+Username for 'https://github.com': bismark28
+Password for 'https://bismark28@github.com': 
+Counting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 167.37 KiB | 0 bytes/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/Bismark28/CAD1-sympy.git
+   471fea7..ca8d785  master -> master
+masters@co-u-l3-01:~/Documents/bismark/CAD1-sympy$ 
+
